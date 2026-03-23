@@ -1,5 +1,10 @@
 package edu.txst.midterm;
 
+
+/**
+ * Game logic for movement and win detection
+ * Updates board state
+ */
 public class GameEngine {
 	private Board board;
 
@@ -17,12 +22,22 @@ public class GameEngine {
 	private static final int PLAYER = 6;
 
 
+	/**
+	 * Creates game engine for a given board
+	 * locates initial player and exit positions 
+	 * @param board
+	 */
 	public GameEngine(Board board) {
 		this.board = board;
 		findPlayer();
 		findExit();
 	}
 
+	/**
+	 * returns whether the player has reached the exit in the current game board
+	 * 
+	 * @return true if exit has been reached, otherwise false
+	 */ 
 	public boolean playerWins() {
 		if (hasWon){
 			return true;
@@ -30,6 +45,9 @@ public class GameEngine {
 		return false;
 	}
 
+	/**
+	 * Returns current position of player
+	 */
 	private void findPlayer() {
 		for (int r = 0; r < 5; r++) {
 			for (int c = 0; c < 10; c++) {
@@ -42,6 +60,9 @@ public class GameEngine {
 		}
 	}
 
+	/**
+	 * Returns position of exit
+	 */
 	private void findExit() {
 		for (int r = 0; r < 5; r++) {
 			for (int c = 0; c < 10; c++) {

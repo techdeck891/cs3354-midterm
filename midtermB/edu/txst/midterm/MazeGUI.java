@@ -6,6 +6,11 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.*;
 
+
+
+/**
+ * GUI for the maze game. Displays board, handles movement and updates info
+ */
 public class MazeGUI extends JFrame {
 	private Board originalBoard;
 	private Board currentBoard;
@@ -14,6 +19,11 @@ public class MazeGUI extends JFrame {
 	private InfoPanel infoPanel;
 	private JMenuItem resetItem;
 	private int stepCounter;
+
+
+	/**
+	 * Creates main game window, initializes menu, takes in keyboard input
+	*/
 
 	public MazeGUI() {
 		setTitle("16-Bit Maze");
@@ -64,6 +74,9 @@ public class MazeGUI extends JFrame {
 		});
 	}
 
+	/**
+	 * Initializes the menu. Adds an open option to load levels, and adds a reset button.
+	 */
 	private void initMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu gameMenu = new JMenu("Game");
@@ -81,6 +94,9 @@ public class MazeGUI extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
+	/**
+	 * Opens the selected CSV file and starts a new game state
+	 */
 	private void openFile() {
 		JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
 		int result = fileChooser.showOpenDialog(this);
@@ -99,7 +115,10 @@ public class MazeGUI extends JFrame {
 			gamePanel.repaint();
 		}
 	}
-
+	
+	/**
+	 * Resets the game state back to the initially loaded board
+	 */
 	private void resetGame() {
 		if (originalBoard != null) {
 			currentBoard = originalBoard.clone();
@@ -109,7 +128,11 @@ public class MazeGUI extends JFrame {
 		}
 	}
 
-	// Inner class for information panel
+
+
+	/**
+	 * Panel for game values such as steps and coins
+	 */
 	private class InfoPanel extends JPanel {
 		private JLabel infoSteps;
 		private JLabel infoCoins;
@@ -127,28 +150,49 @@ public class MazeGUI extends JFrame {
 			this.add(infoCoins);
 		}
 
+		/**
+		 * Updates the step count displayed in the info panel
+		 * @param steps the current number of steps made by the user
+		 */
 		public void setInfoSteps(int steps) {
 			this.infoSteps.setText(Integer.toString(steps));
 		}
 
+		/**
+		 * Returns the step count displayed in the info panel
+		 * @return displayed step count
+		 */
 		public int getInfoSteps() {
 			return Integer.parseInt(this.infoSteps.getText());
 		}
 
+		/**
+		 * Updates the coin count displayed in the info panel
+		 * @param infoCoins the current number of coins gathered by the user
+		 */
 		public void setInfoCoins(int infoCoins) {
 			this.infoCoins.setText(Integer.toString(infoCoins));
 		}
-
+		/**
+		 * Returns the coin count displayed in the info panel
+		 * @return displayed coin count
+		 */
 		public int getInfoCoins() {
 			return Integer.parseInt(this.infoCoins.getText());
 		}
 	}
 
-	// Inner class for custom rendering
+	/** 
+	 * Inner class for custom rendering
+	 **/
 	private class GamePanel extends JPanel {
 		private Board board;
 		private final int TILE_SIZE = 64; // Scale up for visibility
 
+		/**
+		 * Sets the board property of GamePanel to the passed board object
+		 * @param board
+		 */
 		public void setBoard(Board board) {
 			this.board = board;
 		}
@@ -166,6 +210,8 @@ public class MazeGUI extends JFrame {
 				}
 			}
 		}
+
+
 
 		private void drawTile(Graphics g, int type, int x, int y) {
 			// Placeholder colors until you link the sprite loading logic

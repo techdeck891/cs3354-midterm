@@ -15,6 +15,11 @@ public class Board implements Cloneable {
 		stepCounter = new StepCounter();
 	}
 
+	public void setCoinCounter() {
+		coinCounter = new CoinCounter();
+	}
+
+	
 	// Define the value of a particular cell
 	public void setCell(int row, int col, int value) {
 		if (row >= 0 && row < ROWS && col >= 0 && col < COLUMNS) {

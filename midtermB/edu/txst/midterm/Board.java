@@ -5,6 +5,7 @@ public class Board implements Cloneable {
 	private final int ROWS = 6;
 	private Integer[][] grid;
 	public StepCounter stepCounter;
+	public CoinCounter coinCounter;
 
 	public Board() {
 		this.grid = new Integer[ROWS][COLUMNS];

@@ -66,6 +66,10 @@ public class GameEngine {
 			return; // Movement blocked
 		}
 
+		if (targetCell == 2) {
+			board.coinCounter.increaseCoins();
+		}
+
 		// Move the Player
 		// Current position becomes Floor (or Goal if player was standing on one)
 		// Note: For simplicity, this engine assumes player replaces the cell.

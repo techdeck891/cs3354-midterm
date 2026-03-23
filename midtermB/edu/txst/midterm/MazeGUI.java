@@ -42,6 +42,7 @@ public class MazeGUI extends JFrame {
 					case KeyEvent.VK_RIGHT -> engine.movePlayer(0, 1);
 				}
 
+				infoPanel.setInfoCoins(currentBoard.coinCounter.getCoins());
 				infoPanel.setInfoSteps(currentBoard.stepCounter.getSteps());
 				gamePanel.repaint();
 

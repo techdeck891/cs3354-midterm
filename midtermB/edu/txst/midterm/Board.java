@@ -39,6 +39,7 @@ public class Board implements Cloneable {
 	public Board clone() {
 		Board copy = new Board();
 		copy.setStepCounter();
+		copy.setCoinCounter();
 		for (int r = 0; r < ROWS; r++) {
 			for (int c = 0; c < COLUMNS; c++) {
 				copy.setCell(r, c, this.grid[r][c]);

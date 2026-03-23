@@ -2,6 +2,7 @@ package edu.txst.midterm;
 
 public class GameEngine {
 	private Board board;
+
 	private int playerRow;
 	private int playerCol;
 	private int exitRow;
@@ -74,6 +75,10 @@ public class GameEngine {
 		playerRow = targetRow;
 		playerCol = targetCol;
 		board.setCell(playerRow, playerCol, PLAYER);
+
+		board.stepCounter.increaseSteps();
+
+
 
 	}
 }

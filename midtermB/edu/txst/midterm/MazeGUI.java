@@ -41,7 +41,11 @@ public class MazeGUI extends JFrame {
 					case KeyEvent.VK_LEFT -> engine.movePlayer(0, -1);
 					case KeyEvent.VK_RIGHT -> engine.movePlayer(0, 1);
 				}
+
+				infoPanel.setInfoSteps(currentBoard.stepCounter.getSteps());
 				gamePanel.repaint();
+
+
 
 				// Check for victory
 				if (engine.playerWins()) {
@@ -122,8 +126,8 @@ public class MazeGUI extends JFrame {
 			this.add(infoCoins);
 		}
 
-		public void setInfoSteps(int remainingSteps) {
-			this.infoSteps.setText(Integer.toString(remainingSteps));
+		public void setInfoSteps(int steps) {
+			this.infoSteps.setText(Integer.toString(steps));
 		}
 
 		public int getInfoSteps() {

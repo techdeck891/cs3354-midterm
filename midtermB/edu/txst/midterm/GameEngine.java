@@ -7,6 +7,7 @@ public class GameEngine {
 	private int playerCol;
 	private int exitRow;
 	private int exitCol;
+	private boolean hasWon = false;
 
 	// Cell Type Constants
 	private static final int FLOOR = 0;
@@ -23,6 +24,9 @@ public class GameEngine {
 	}
 
 	public boolean playerWins() {
+		if (hasWon){
+			return true;
+		}
 		return false;
 	}
 
@@ -74,6 +78,7 @@ public class GameEngine {
 		// Current position becomes Floor (or Goal if player was standing on one)
 		// Note: For simplicity, this engine assumes player replaces the cell.
 		// If you want "Player on Goal", you'd add a 6th constant.
+
 		board.setCell(playerRow, playerCol, FLOOR);
 
 		playerRow = targetRow;
@@ -82,6 +87,9 @@ public class GameEngine {
 
 		board.stepCounter.increaseSteps();
 
+		if(targetCell == EXIT){
+			hasWon = true;
+		}
 
 
 	}

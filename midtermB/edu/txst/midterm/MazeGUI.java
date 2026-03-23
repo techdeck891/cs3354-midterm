@@ -1,10 +1,10 @@
 package edu.txst.midterm;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import javax.swing.*;
 
 public class MazeGUI extends JFrame {
 	private Board originalBoard;
@@ -51,8 +51,8 @@ public class MazeGUI extends JFrame {
 				// Check for victory
 				if (engine.playerWins()) {
 					JOptionPane.showMessageDialog(MazeGUI.this,
-							"Congratulations! You found the exit.\nYour got "
-									+ infoPanel.getInfoSteps() * 1 + infoPanel.getInfoCoins()
+							"Congratulations! You found the exit.\nYou got "
+									+ infoPanel.getInfoSteps() * -1 + infoPanel.getInfoCoins() * 5
 									+ "points",
 							"Level Complete", JOptionPane.INFORMATION_MESSAGE);
 
